@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Pressstart2p">
+    <title>Stock Ticker 8-bit game</title>
+    <meta name="description" content="Stock Ticker 8-bit game">
+    <meta name="keywords" content="stocks, 8bit, game, simulation">
+    <meta charset="utf-8">
+</head>
+<body onload="function_first_load(event)" onkeydown="function_next(event)">
+    <table id = "main_table">
+        <tr>
+            <th id="section_header_ongoing_session" colspan="7">Ongoing session</th>
+        </tr>
+        <tr>
+            <th>Commodity</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Buy/Sell</th>
+            <th>Total</th>
+            <th colspan="2">Order</th>
+        </tr>
+        <tr>
+            <td>Gold</td>
+            <td id="gold_current_price"></td>
+            <td id="gold_current_status">-</td>
+            <td>
+                <input type="number" id="gold_order_qty" oninput="funcion_buy_calculation(event, 0)">
+            </td>
+            <td id="gold_order_sum"></td>
+            <td id="gold_button_order_buy" onclick="function_order(event, 0, 0)">B</td>
+            <td id="gold_button_order_sell" onclick="function_order(event, 0, 1)">S</td>
+        </tr>
+        <tr>
+            <td>Silver</td>
+            <td id="silver_current_price"></td>
+            <td id="silver_current_status">-</td>
+            <td>
+                <input type="number" id="silver_order_qty" oninput="funcion_buy_calculation(event, 1)">
+            </td>
+            <td id="silver_order_sum"></td>
+            <td id="silver_button_order_buy" onclick="function_order(event, 1, 0)">B</td>
+            <td id="silver_button_order_sell" onclick="function_order(event, 1, 1)">S</td>
+        </tr>
+        <tr>
+            <td>Bonds</td>
+            <td id="bonds_current_price"></td>
+            <td id="bonds_current_status">-</td>
+            <td>
+                <input type="number" id="bonds_order_qty" oninput="funcion_buy_calculation(event, 2)">
+            </td>
+            <td id="bonds_order_sum"></td>
+            <td id="bonds_button_order_buy" onclick="function_order(event, 2, 0)">B</td>
+            <td id="bonds_button_order_sell" onclick="function_order(event, 2, 1)">S</td>
+        </tr>
+        <tr>
+            <td>Industrial</td>
+            <td id="industrial_current_price"></td>
+            <td id="industrial_current_status">-</td>
+            <td>
+                <input type="number" id="industrial_order_qty" oninput="funcion_buy_calculation(event, 3)">
+            </td>
+            <td id="industrial_order_sum"></td>
+            <td id="industrial_button_order_buy" onclick="function_order(event, 3, 0)">B</td>
+            <td id="industrial_button_order_sell" onclick="function_order(event, 3, 1)">S</td>
+        </tr>
+        <tr>
+            <td>Grain</td>
+            <td id="grain_current_price"></td>
+            <td id="grain_current_status">-</td>
+            <td>
+                <input type="number" id="grain_order_qty" oninput="funcion_buy_calculation(event, 4)">
+            </td>
+            <td id="grain_order_sum"></td>
+            <td id="grain_button_order_buy" onclick="function_order(event, 4, 0)">B</td>
+            <td id="grain_button_order_sell" onclick="function_order(event, 4, 1)">S</td>
+        </tr>
+        <tr>
+            <td>Oil</td>
+            <td id="oil_current_price"></td>
+            <td id="oil_current_status">-</td>
+            <td>
+                <input type="number" id="oil_order_qty" oninput="funcion_buy_calculation(event, 5)">
+            </td>
+            <td id="oil_order_sum"></td>
+            <td id="oil_button_order_buy" onclick="function_order(event, 5, 0)">B</td>
+            <td id="oil_button_order_sell" onclick="function_order(event, 5, 1)">S</td>
+        </tr>
+        <tr>
+            <th id="section_header_portfolio" colspan="7">Portfolio</th>
+        </tr>
+        <tr>
+            <th>Commodity</th>
+            <th>Av.buy price</th>
+            <th>Stocks total</th>
+            <th>Total spent</th>
+            <th>Market value</th>
+            <th colspan="2">Profit/ loss</th>
+        </tr>
+        <tr>
+            <td>Gold</td>
+            <td id="gold_buy_average_price"></td>
+            <td id="gold_total_stock"></td>
+            <td id="gold_total_spent"></td>
+            <td id="gold_market_cap"></td>
+            <td id="gold_profit_loss" colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Silver</td>
+            <td id="silver_buy_average_price"></td>
+            <td id="silver_total_stock"></td>
+            <td id="silver_total_spent"></td>
+            <td id="silver_market_cap"></td>
+            <td id="silver_profit_loss" colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Bonds</td>
+            <td id="bonds_buy_average_price"></td>
+            <td id="bonds_total_stock"></td>
+            <td id="bonds_total_spent"></td>
+            <td id="bonds_market_cap"></td>
+            <td id="bonds_profit_loss" colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Industrial</td>
+            <td id="industrial_buy_average_price"></td>
+            <td id="industrial_total_stock"></td>
+            <td id="industrial_total_spent"></td>
+            <td id="industrial_market_cap"></td>
+            <td id="industrial_profit_loss" colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Grain</td>
+            <td id="grain_buy_average_price"></td>
+            <td id="grain_total_stock"></td>
+            <td id="grain_total_spent"></td>
+            <td id="grain_market_cap"></td>
+            <td id="grain_profit_loss" colspan="2"></td>
+        </tr>
+        <tr>
+            <td>Oil</td>
+            <td id="oil_buy_average_price"></td>
+            <td id="oil_total_stock"></td>
+            <td id="oil_total_spent"></td>
+            <td id="oil_market_cap"></td>
+            <td id="oil_profit_loss" colspan="2"></td>
+        </tr>
+
+<!-- total balance for later use -->
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th id="total_market_cap"></th>
+            <th id="total_profit_loss"></th>
+            <th colspan="2"></th>
+        </tr>
+
+
+        
+        <tr id="balance_info">
+            <th>Balance:</th> 
+            <th id="balance"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <td id="button_order_next" colspan="2" onclick="function_next(event, true)">NEXT</td>
+        </tr>
+    </table>
+
+<script src="main.js"></script>
+
+</body>
+</html>
