@@ -208,8 +208,7 @@ function function_price_reset(commodity){ // reset price if goes 0 (deletes all 
 
 function function_dividents(commodity, degree){
     if (parseInt(document.getElementById(commodity + total_stock).innerHTML.replace('$ ', '')) >0){
-        document.getElementById(commodity + total_stock).innerHTML = parseInt(document.getElementById(commodity + total_stock).innerHTML.replace('$ ', '')) +
+        document.getElementById(commodity + total_spent).innerHTML = parseInt(document.getElementById(commodity + total_spent).innerHTML.replace('$ ', '')) -
         (parseInt(document.getElementById(commodity + total_stock).innerHTML.replace('$ ', '')) * parseFloat(degree)/100);
     }
-
 }
