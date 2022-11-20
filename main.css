@@ -1,7 +1,7 @@
 body {
     background-color: black;
     color: white;
-    font-family: "Press Start 2P";
+    font-family: 'Press Start 2P';
     display: flex;
     justify-content: center;
     font-size: 14px;
@@ -27,7 +27,7 @@ input {
     color:white;
     width: 90px;
     height: 14px;
-    font-family: "Press Start 2P";
+    font-family: 'Press Start 2P';
     text-align: center;
 }
 
